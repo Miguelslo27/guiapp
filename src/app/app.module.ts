@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+// My modules
+import { AgmCoreModule } from '@agm/core';
 
 import { AppComponent } from './app.component';
 
@@ -10,7 +12,8 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AgmCoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
