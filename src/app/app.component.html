@@ -1,12 +1,24 @@
-<nav>
-  <div class="nav-wrapper">
-    <a href="#" class="brand-logo">GuiApp</a>
-    <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li><a href="#">Ingresar</a></li>
-      <li><a href="#">Registrarse</a></li>
-      <li><a href="#">Contacto</a></li>
-    </ul>
-  </div>
-</nav>
+<div class="navbar-fixed">
+  <nav>
+    <div class="nav-wrapper teal darken-2">
+      <a href="#" class="brand-logo">GuiApp</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="#">Ingresar</a></li>
+        <li><a href="#">Registrarse</a></li>
+        <li><a href="#">Contacto</a></li>
+      </ul>
+    </div>
+  </nav>
+</div>
 
-<h1>Guia Comercial</h1>
+<agm-map
+  [latitude]="lat"
+  [longitude]="lng"
+  [zoom]="zm"
+  [styles]="mapStyles"
+  [streetViewControl]="false">
+  <agm-marker
+    [latitude]="lat"
+    [longitude]="lng">
+  </agm-marker>
+</agm-map>
