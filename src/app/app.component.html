@@ -12,13 +12,13 @@
 </div>
 
 <agm-map
-  [latitude]="lat"
-  [longitude]="lng"
-  [zoom]="zm"
-  [styles]="mapStyles"
-  [streetViewControl]="false">
+  [latitude]="mapSettings.lat"
+  [longitude]="mapSettings.lng"
+  [zoom]="mapSettings.zoom"
+  [streetViewControl]="mapSettings.streetView"
+  [styles]="mapStyles">
   <agm-marker
-    [latitude]="lat"
-    [longitude]="lng">
+    [latitude]="userLocation.lat"
+    [longitude]="userLocation.lng">
   </agm-marker>
 </agm-map>

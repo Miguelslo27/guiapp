@@ -7,10 +7,18 @@ import { MapTypeStyle } from '@agm/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'app';
-  lat = -34.751703;
-  lng = -55.725607;
-  zm = 14;
+  title: string = 'app';
+  mapSettings: any = {
+    lat: 0,
+    lng: 0,
+    zoom: 14,
+    streetView: false
+  };
+  userLocation: any = {
+    lat: 0,
+    lng: 0
+  }
+
   mapStyles: MapTypeStyle[] = [
     {
       elementType: 'all',
@@ -31,12 +39,10 @@ export class AppComponent {
   ];
 
   ngOnInit() {
-    console.log(navigator);
-
     if ("geolocation" in navigator) {
-      navigator.geolocation.watchPosition((position) => {
-        // this.lat = position.coords.latitude;
-        // this.lng ¡ position.coords.longitude;
+      navigator.geolocation.getCurrentPosition((position) => {
+        this.mapSettings.lat = this.userLocation.lat = position.coords.latitude;
+        this.mapSettings.lng = this.userLocation.lng = position.coords.longitude;
       });
     } else {
       /* geolocaiton IS NOT available */
