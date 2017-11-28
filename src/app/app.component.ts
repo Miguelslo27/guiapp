@@ -1,12 +1,15 @@
-import { Component } from '@angular/core';
-import { MapTypeStyle } from '@agm/core';
+import { Component, ViewChild } from '@angular/core';
+import { MapTypeStyle, AgmInfoWindow } from '@agm/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  // directives: [AgmInfoWindow]
 })
 export class AppComponent {
+  @ViewChild(AgmInfoWindow) agmInfoWindow: AgmInfoWindow;
+
   title: string = 'app';
   mapSettings: any = {
     lat: 0,
@@ -14,7 +17,6 @@ export class AppComponent {
     zoom: 14,
     streetView: false
   };
-
   mapStyles: MapTypeStyle[] = [
     {
       "elementType": "geometry",
@@ -201,7 +203,6 @@ export class AppComponent {
       ]
     }
   ]
-
   // [
   //   {
   //     elementType: 'all',
@@ -220,6 +221,7 @@ export class AppComponent {
   //     ]
   //   }
   // ];
+
   userLocation: any = {
     lat: 0,
     lng: 0
@@ -284,12 +286,50 @@ export class AppComponent {
         openingDate: 0,
         dateCreated: 0,
         lastModified: 0
+      },
+      {
+        title: "Mobile Supplies",
+        description: "Todo para tu móbil.",
+        phone: "091 322 302",
+        email: "mail@mail.com",
+        webpage: "http://google.com",
+        facebook: "https://facebook.com",
+        twitter: "https://twitter.com",
+        schedules: [
+          { day: "su", open: [] },
+          { day: "mo", open: [] },
+          { day: "tu", open: [] },
+          { day: "we", open: [] },
+          { day: "th", open: [] },
+          { day: "fr", open: [] },
+          { day: "sa", open: [] },
+        ],
+        profilePictureUrl: "https://scontent.fmvd3-1.fna.fbcdn.net/v/t1.0-9/14199662_334296080239217_1746760409949463613_n.png?oh=4079f433af4ee22471094dbfd6e09b1b&oe=5A9D4FC9",
+        imageUrl: "https://scontent.fmvd3-1.fna.fbcdn.net/v/t1.0-9/14183868_334261870242638_7683957805114582291_n.jpg?oh=7c8dc4cc0d710cc4d0feba947a643e13&oe=5A9DA1AA",
+        location: {
+          address: "Ferreira & 8, Parque del Plata, Uruguay",
+          lat: -34.767194,
+          lng: -55.722324
+        },
+        categories: ["tecnología", "celulares", "electrónica", "tienda"],
+        services: ["venta", "ascesoramiento", "capacitación", "reparación"],
+        facilities: ["aire acondicionado", "wifi"],
+        openingDate: 0,
+        dateCreated: 0,
+        lastModified: 0
       }
     ];
   }
 
   displayLocationInfo(location) {
     console.log('Location clicked -->', location);
+    console.log('agmInfoWindow -->', this.agmInfoWindow);
+    
+    this.agmInfoWindow.open();
     this.selectedLocation = location;
+  }
+
+  undisplayLocationInfo() {
+    this.selectedLocation = null;
   }
 }

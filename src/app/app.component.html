@@ -23,7 +23,7 @@
     [longitude]="userLocation.lng"
     [openInfoWindow]="true">
     <agm-info-window [isOpen]="true">
-      <strong>Tu ubicación</strong>
+      <strong>¡Tu estás aquí!</strong>
     </agm-info-window>
   </agm-marker>
 
@@ -32,11 +32,11 @@
     <agm-marker
       [latitude]="loc.location.lat"
       [longitude]="loc.location.lng"
-      [openInfoWindow]="true"
+      [openInfoWindow]="false"
       (markerClick)="displayLocationInfo(loc)">
-      <agm-info-window [isOpen]="false">
-        <h5>{{loc.title}}</h5>
-        <p>{{loc.description}}</p>
+      <agm-info-window
+        (infoWindowClose)="undisplayLocationInfo()">
+        <h6>{{loc.title}}</h6>
       </agm-info-window>
     </agm-marker>
   </ng-container>
