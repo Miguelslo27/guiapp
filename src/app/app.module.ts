@@ -1,15 +1,24 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-// My modules
+// Custom modules
 import { AgmCoreModule } from '@agm/core';
 
+// Components
 import { AppComponent } from './app.component';
 
+// Pipes
+
+// Services
 
 @NgModule({
   declarations: [
-    AppComponent
+    // Components
+    AppComponent,
+
+    // Pipes
+
+    // Services
   ],
   imports: [
     BrowserModule,

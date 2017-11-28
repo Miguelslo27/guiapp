@@ -2,8 +2,10 @@
 $roboto-font-path: "~materialize-css/dist/fonts/roboto/";
 @import "~materialize-css/sass/materialize";
 
+html, body { overflow: hidden; }
+
 agm-map {
-  height: 100vh;
+  height: 105vh;
   position: absolute;
   top: 0;
   left: 0;

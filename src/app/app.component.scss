@@ -1,0 +1,23 @@
+.card {
+  position: absolute;
+  top: 64px;
+  right: 0;
+  bottom: 0;
+  width: 25%;
+  margin: 0;
+
+  .card-image {
+    .circle {
+      border-radius: 50%;
+    }
+  }
+
+  .card-action {
+    &:last-child {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+  }
+}

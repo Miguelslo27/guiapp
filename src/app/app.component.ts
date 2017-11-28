@@ -14,38 +14,282 @@ export class AppComponent {
     zoom: 14,
     streetView: false
   };
-  userLocation: any = {
-    lat: 0,
-    lng: 0
-  }
 
   mapStyles: MapTypeStyle[] = [
     {
-      elementType: 'all',
-      featureType: 'all',
-      stylers: [
+      "elementType": "geometry",
+      "stylers": [
         {
-          // color: '#FF0000'
-          // gamma?: number;
-          // hue?: string;
-          invert_lightness: true
-          // lightness?: number;
-          // saturation?: number;
-          // visibility?: string;
-          // weight?: number;
+          "color": "#212121"
+        }
+      ]
+    },
+    {
+      "elementType": "labels.icon",
+      "stylers": [
+        {
+          "visibility": "off"
+        }
+      ]
+    },
+    {
+      "elementType": "labels.text.fill",
+      "stylers": [
+        {
+          "color": "#757575"
+        }
+      ]
+    },
+    {
+      "elementType": "labels.text.stroke",
+      "stylers": [
+        {
+          "color": "#212121"
+        }
+      ]
+    },
+    {
+      "featureType": "administrative",
+      "elementType": "geometry",
+      "stylers": [
+        {
+          "color": "#757575"
+        }
+      ]
+    },
+    {
+      "featureType": "administrative.country",
+      "elementType": "labels.text.fill",
+      "stylers": [
+        {
+          "color": "#9e9e9e"
+        }
+      ]
+    },
+    {
+      "featureType": "administrative.land_parcel",
+      "stylers": [
+        {
+          "visibility": "off"
+        }
+      ]
+    },
+    {
+      "featureType": "administrative.locality",
+      "elementType": "labels.text.fill",
+      "stylers": [
+        {
+          "color": "#bdbdbd"
+        }
+      ]
+    },
+    {
+      "featureType": "poi",
+      "elementType": "labels.text.fill",
+      "stylers": [
+        {
+          "color": "#757575"
+        }
+      ]
+    },
+    {
+      "featureType": "poi.park",
+      "elementType": "geometry",
+      "stylers": [
+        {
+          "color": "#181818"
+        }
+      ]
+    },
+    {
+      "featureType": "poi.park",
+      "elementType": "labels.text.fill",
+      "stylers": [
+        {
+          "color": "#616161"
+        }
+      ]
+    },
+    {
+      "featureType": "poi.park",
+      "elementType": "labels.text.stroke",
+      "stylers": [
+        {
+          "color": "#1b1b1b"
+        }
+      ]
+    },
+    {
+      "featureType": "road",
+      "elementType": "geometry.fill",
+      "stylers": [
+        {
+          "color": "#2c2c2c"
+        }
+      ]
+    },
+    {
+      "featureType": "road",
+      "elementType": "labels.text.fill",
+      "stylers": [
+        {
+          "color": "#8a8a8a"
+        }
+      ]
+    },
+    {
+      "featureType": "road.arterial",
+      "elementType": "geometry",
+      "stylers": [
+        {
+          "color": "#373737"
+        }
+      ]
+    },
+    {
+      "featureType": "road.highway",
+      "elementType": "geometry",
+      "stylers": [
+        {
+          "color": "#3c3c3c"
+        }
+      ]
+    },
+    {
+      "featureType": "road.highway.controlled_access",
+      "elementType": "geometry",
+      "stylers": [
+        {
+          "color": "#4e4e4e"
+        }
+      ]
+    },
+    {
+      "featureType": "road.local",
+      "elementType": "labels.text.fill",
+      "stylers": [
+        {
+          "color": "#616161"
+        }
+      ]
+    },
+    {
+      "featureType": "transit",
+      "elementType": "labels.text.fill",
+      "stylers": [
+        {
+          "color": "#757575"
+        }
+      ]
+    },
+    {
+      "featureType": "water",
+      "elementType": "geometry",
+      "stylers": [
+        {
+          "color": "#000000"
+        }
+      ]
+    },
+    {
+      "featureType": "water",
+      "elementType": "labels.text.fill",
+      "stylers": [
+        {
+          "color": "#3d3d3d"
         }
       ]
     }
-  ];
+  ]
+
+  // [
+  //   {
+  //     elementType: 'all',
+  //     featureType: 'all',
+  //     stylers: [
+  //       {
+  //         // color: '#FF0000'
+  //         // gamma?: number;
+  //         // hue?: string;
+  //         invert_lightness: true
+  //         // lightness?: number;
+  //         // saturation?: number;
+  //         // visibility?: string;
+  //         // weight?: number;
+  //       }
+  //     ]
+  //   }
+  // ];
+  userLocation: any = {
+    lat: 0,
+    lng: 0
+  };
+  locations: any = [];
+  selectedLocation: any;
 
   ngOnInit() {
     if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition((position) => {
-        this.mapSettings.lat = this.userLocation.lat = position.coords.latitude;
-        this.mapSettings.lng = this.userLocation.lng = position.coords.longitude;
-      });
+        // this.mapSettings.lat = this.userLocation.lat = position.coords.latitude;
+        // this.mapSettings.lng = this.userLocation.lng = position.coords.longitude;
+
+        this.mapSettings.lat = this.userLocation.lat = -34.7518171;
+        this.mapSettings.lng = this.userLocation.lng = -55.725730500000004;
+      }, () => console.log('Error gettiong current position.'));
+
+      navigator.geolocation.watchPosition((position) => {
+        console.log('Change position -->', position);
+        // this.mapSettings.lat = this.userLocation.lat = position.coords.latitude;
+        // this.mapSettings.lng = this.userLocation.lng = position.coords.longitude;
+
+        this.mapSettings.lat = this.userLocation.lat = -34.7518171;
+        this.mapSettings.lng = this.userLocation.lng = -55.725730500000004;
+      }, () => console.log('Error gettiong current position.'));
     } else {
       /* geolocaiton IS NOT available */
     }
+
+    this.loadLocations();
+  }
+
+  loadLocations() {
+    this.locations = [
+      {
+        title: "Gloss Peluquería",
+        description: "Peluquería Unisex, animate al cambio.",
+        phone: "091 322 302",
+        email: "mail@mail.com",
+        webpage: "http://google.com",
+        facebook: "https://facebook.com",
+        twitter: "https://twitter.com",
+        schedules: [
+          { day: "su", open: [] },
+          { day: "mo", open: [] },
+          { day: "tu", open: [] },
+          { day: "we", open: [] },
+          { day: "th", open: [] },
+          { day: "fr", open: [] },
+          { day: "sa", open: [] },
+        ],
+        profilePictureUrl: "https://scontent.fmvd3-1.fna.fbcdn.net/v/t1.0-9/21430308_327894687673109_7851292938888459039_n.jpg?oh=7a78e12e8e75a6bc7938847cb090efdb&oe=5A8D21C9",
+        imageUrl: "https://scontent.fmvd3-1.fna.fbcdn.net/v/t1.0-9/19437398_293619854433926_3329266658155700074_n.png?oh=a0363980df4c633f4f1927d2eefa5fe1&oe=5A93799F",
+        location: {
+          address: "Diagonal 1 & C, Parque del Plata, Uruguay",
+          lat: -34.764566,
+          lng: -55.724720
+        },
+        categories: ["peluqueria", "peluqueria-unisex", "belleza", "cuidado-personal"],
+        services: ["corte", "color", "claritos", "brushing", "peinados", "balayage", "podología", "depilación", "manicuría", "maquillaje"],
+        facilities: ["aire acondicionado", "wifi"],
+        openingDate: 0,
+        dateCreated: 0,
+        lastModified: 0
+      }
+    ];
+  }
+
+  displayLocationInfo(location) {
+    console.log('Location clicked -->', location);
+    this.selectedLocation = location;
   }
 }
