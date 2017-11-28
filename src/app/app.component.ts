@@ -20,7 +20,7 @@ export class AppComponent {
           // color: '#FF0000'
           // gamma?: number;
           // hue?: string;
-          invert_lightness: true;
+          invert_lightness: true
           // lightness?: number;
           // saturation?: number;
           // visibility?: string;
