@@ -63,8 +63,7 @@
 
     <div class="row card-title valign-wrapper">
       <div class="col s3 circle">
-        <img class="responsive-img"
-          [src]="selectedLocation.profilePictureUrl">
+        <img [src]="selectedLocation.profilePictureUrl">
       </div>
       <div class="col s9">
         <span class="white-text">
@@ -74,17 +73,19 @@
     </div>
   </div>
   <div class="card-content">
-    <h5>Descripción</h5>
-    <p>{{selectedLocation.description}}</p>
-    <h5>Servicios</h5>
-    <div class="chip"
-      *ngFor="let service of selectedLocation.services">
-      {{service | titlecase}}
-    </div>
-    <h5>Categorias</h5>
-    <div class="chip"
-      *ngFor="let cat of selectedLocation.categories">
-      {{cat | titlecase}}
+    <div class="card-content-inner">
+      <h5>Descripción</h5>
+      <p>{{selectedLocation.description}}</p>
+      <h5>Servicios</h5>
+      <div class="chip"
+        *ngFor="let service of selectedLocation.services">
+        {{service | titlecase}}
+      </div>
+      <h5>Categorias</h5>
+      <div class="chip"
+        *ngFor="let cat of selectedLocation.categories">
+        {{cat | titlecase}}
+      </div>
     </div>
   </div>
 </div>

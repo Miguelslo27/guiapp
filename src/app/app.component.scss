@@ -23,6 +23,20 @@ agm-map {
   margin: 0;
 
   .card-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 65%;
+    overflow: hidden;
+    
+    > img {
+      width: auto;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
     .circle {
       border-radius: 50%;
       border: 1px solid rgba(255,255,255, .5);
@@ -55,12 +69,12 @@ agm-map {
     }
   }
 
-  .card-action {
-    &:last-child {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-    }
+  .card-content {
+    position: absolute;
+    top: 35%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: auto;
   }
 }
