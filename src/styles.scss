@@ -27,6 +27,14 @@ html, body { overflow: hidden; }
   &.left {
     left: 24px;
   }
+
+  .material-icons {
+    font-size: 32px;
+    line-height: 32px;
+    width: 32px;
+    height: 32px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,.5);
+  }
 }
 
 agm-map {
