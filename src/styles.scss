@@ -3,6 +3,7 @@ $roboto-font-path: "~materialize-css/dist/fonts/roboto/";
 
 @import "~materialize-css/sass/components/color";
 @import "./variables";
+@import "./mixins";
 @import "~materialize-css/sass/materialize";
 
 html, body { overflow: hidden; }

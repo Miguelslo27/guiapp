@@ -1,0 +1,26 @@
+@mixin bg-retina($file, $type, $gradient: "") {
+  @if $gradient == "" {
+    background-image: url($file + "." + $type);
+  } @else {
+    background-image: url($file + "." + $type), unquote($gradient);
+  }
+
+  @media (-webkit-min-device-pixel-ratio: 2), (-moz-min-device-pixel-ratio: 2) {
+    @if $gradient == "" {
+      background-image: url($file + "@2x." + $type);
+    } @else {
+      background-image: url($file + "@2x." + $type), unquote($gradient);
+    }
+  }
+}
+
+@mixin basic-linear-gradient($fromColor, $fc-value, $toCollor, $tc-value, $rotation) {
+  background: -moz-linear-gradient($rotation, $fromColor $fc-value, $toCollor $tc-value);
+  background: -webkit-gradient(linear, left bottom, right top, color-stop($fc-value, $fromColor), color-stop($tc-value, $toCollor));
+  background: -webkit-linear-gradient($rotation, $fromColor $fc-value, $toCollor $tc-value);
+  background: -o-linear-gradient($rotation, $fromColor $fc-value, $toCollor $tc-value);
+  background: -ms-linear-gradient($rotation, $fromColor $fc-value, $toCollor $tc-value);
+  background: linear-gradient($rotation, $fromColor $fc-value, $toCollor $tc-value);
+}
+
+// @include basic-linear-gradient(rgba(0,0,0,0.0), rgba(0,0,0,0.9), 180deg);
