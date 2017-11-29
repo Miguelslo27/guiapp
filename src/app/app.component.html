@@ -1,3 +1,4 @@
+<!-- HEADER NAVIGATION -->
 <div class="navbar-fixed">
   <nav>
     <div class="nav-wrapper teal darken-2">
@@ -11,6 +12,7 @@
   </nav>
 </div>
 
+<!-- MAPS -->
 <agm-map
   [latitude]="mapSettings.lat"
   [longitude]="mapSettings.lng"
@@ -42,6 +44,9 @@
   </ng-container>
 </agm-map>
 
+<!-- UI BUTTONS LIST -->
+
+<!-- LOCATION SELECTED CARD -->
 <div class="card z-depth-2"
   *ngIf="selectedLocation">
   <div class="card-image">
