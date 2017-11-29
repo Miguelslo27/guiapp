@@ -15,6 +15,20 @@ html, body { overflow: hidden; }
   padding: 0 1rem;
 }
 
+.action-close {
+  position: absolute;
+  top: 24px;
+  cursor: pointer;
+
+  &.right {
+    right: 24px;
+  }
+
+  &.left {
+    left: 24px;
+  }
+}
+
 agm-map {
   height: 105vh;
   position: absolute;
