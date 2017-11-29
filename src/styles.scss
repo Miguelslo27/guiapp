@@ -1,8 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
 $roboto-font-path: "~materialize-css/dist/fonts/roboto/";
+
+@import "~materialize-css/sass/components/color";
+@import "./variables";
 @import "~materialize-css/sass/materialize";
 
 html, body { overflow: hidden; }
+
+* {
+  // @extend .grey-text;
+  // @extend .darken-4;
+}
 
 agm-map {
   height: 105vh;
