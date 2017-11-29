@@ -8,8 +8,10 @@ $roboto-font-path: "~materialize-css/dist/fonts/roboto/";
 html, body { overflow: hidden; }
 
 * {
-  // @extend .grey-text;
-  // @extend .darken-4;
+}
+
+.btn, .btn-large {
+  padding: 0 1rem;
 }
 
 agm-map {

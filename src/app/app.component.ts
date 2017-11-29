@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { MapTypeStyle, AgmInfoWindow } from '@agm/core';
+import { MapTypeStyle, AgmMap } from '@agm/core';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +7,7 @@ import { MapTypeStyle, AgmInfoWindow } from '@agm/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  @ViewChild(AgmInfoWindow) agmInfoWindow: AgmInfoWindow;
+  @ViewChild(AgmMap) agmMap: AgmMap;
 
   title: string = 'app';
   mapSettings: any = {
@@ -303,14 +303,12 @@ export class AppComponent {
   }
 
   displayLocationInfo(location) {
-    console.log('Location clicked -->', location);
-    console.log('agmInfoWindow -->', this.agmInfoWindow);
-    
-    this.agmInfoWindow.open();
     this.selectedLocation = location;
+    this.agmMap.triggerResize(true);
   }
 
   undisplayLocationInfo() {
     this.selectedLocation = null;
+    this.agmMap.triggerResize(true);
   }
 }

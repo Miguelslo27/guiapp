@@ -1,3 +1,20 @@
+@import "~materialize-css/sass/components/color";
+@import "../variables";
+
+agm-map {
+  &.card-margin {
+    right: 25%;
+  }
+}
+
+.locations-list-comands {
+  padding: $card-padding;
+
+  .btn:not(:first-child) {
+    margin-left: 10px;
+  }
+}
+
 .card {
   position: absolute;
   top: 64px;
