@@ -4,8 +4,7 @@ import { MapTypeStyle, AgmInfoWindow } from '@agm/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
-  // directives: [AgmInfoWindow]
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
   @ViewChild(AgmInfoWindow) agmInfoWindow: AgmInfoWindow;
@@ -203,24 +202,6 @@ export class AppComponent {
       ]
     }
   ]
-  // [
-  //   {
-  //     elementType: 'all',
-  //     featureType: 'all',
-  //     stylers: [
-  //       {
-  //         // color: '#FF0000'
-  //         // gamma?: number;
-  //         // hue?: string;
-  //         invert_lightness: true
-  //         // lightness?: number;
-  //         // saturation?: number;
-  //         // visibility?: string;
-  //         // weight?: number;
-  //       }
-  //     ]
-  //   }
-  // ];
 
   userLocation: any = {
     lat: 0,
