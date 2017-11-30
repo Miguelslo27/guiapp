@@ -7,6 +7,8 @@ agm-map {
 }
 
 .locations-list-comands {
+  position: relative;
+  z-index: 2;
   padding: $card-padding;
 
   .btn:not(:first-child) {
@@ -78,4 +80,91 @@ agm-map {
     bottom: 0;
     overflow: auto;
   }
+}
+
+.categories {
+  position: absolute;
+  z-index: 1;
+  top: 64px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: auto;
+  padding-top: 100px;
+
+  &:before {
+    content: "";
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: .9;
+    @include basic-linear-gradient($primary-color, 0, $primary-color-light, 100%, 180deg);
+  }
+
+  .container {
+    position: relative;
+    z-index: 2;
+  }
+
+  .action-close {
+    position: fixed;
+    top: 90px;
+    z-index: 3;
+  }
+
+  .category-list {
+    padding-top: 30px;
+
+    .category {
+      text-align: center;
+      border-radius: 3px;
+      margin-bottom: 20px;
+      border: 2px solid $primary-color;
+      background: #fff;
+      cursor: pointer;
+
+      @media #{$small-and-down} {
+        padding: 1rem;
+      }
+      @media #{$medium-and-up} {
+        padding: 2.5rem;
+      }
+      @media #{$extra-large-and-up} {
+        padding: 3rem;
+      }
+
+
+      h4.category-icon {
+        position: relative;
+        margin: 0;
+        margin-bottom: 20px;
+        border-radius: 50%;
+        color: $primary-color;
+        border: 3px solid $primary-color;
+        @include maintain-ratio(1 1);
+
+        .material-icons {
+          font-size: 4.5rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+        }
+      }
+
+      h5 {
+        font-size: 1.5rem;
+        font-weight: 400;
+        color: $primary-color;
+      }
+    }
+  }
+
 }
