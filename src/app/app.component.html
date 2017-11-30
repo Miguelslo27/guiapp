@@ -46,8 +46,10 @@
 </agm-map>
 
 <!-- UI BUTTONS LIST -->
-<div class="locations-list-comands">
-  <a class="btn btn-large waves-effect waves-light">
+<div class="locations-list-comands"
+  [ngClass]="{'card-margin' : selectedLocation, 'close-btn-margin': showCategories}">
+  <a class="btn btn-large waves-effect waves-light"
+    (click)="toggleCategoriesScreen()">
     <i class="material-icons">apps</i>
   </a>
   <a class="btn btn-large waves-effect waves-light">
@@ -96,7 +98,8 @@
 </div>
 
 <!-- CATEGORIES SCREEN -->
-<div class="categories">
+<div class="categories"
+  *ngIf="showCategories">
   <div class="container">
     <div class="section">
       <h4 class="white-text text-depth-1">Categorías Principales</h4>
@@ -186,7 +189,7 @@
   </div>
 
   <a class="right white-text action-close"
-    (click)="undisplayLocationInfo()">
+    (click)="closeCategoriesScreen()">
     <i class="material-icons text-depth-1">close</i>
   </a>
 </div>

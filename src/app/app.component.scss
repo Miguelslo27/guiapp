@@ -1,11 +1,5 @@
 @import "../styles";
 
-agm-map {
-  &.card-margin {
-    right: $card-width;
-  }
-}
-
 .locations-list-comands {
   position: relative;
   z-index: 2;
@@ -26,6 +20,7 @@ agm-map {
 
   .card-image {
     position: absolute;
+    z-index: 1;
     top: 0;
     left: 0;
     right: 0;
@@ -111,7 +106,7 @@ agm-map {
 
   .action-close {
     position: fixed;
-    top: 90px;
+    top: 88px;
     z-index: 3;
   }
 
@@ -162,6 +157,7 @@ agm-map {
       h5 {
         font-size: 1.5rem;
         font-weight: 400;
+        height: 50px;
         color: $primary-color;
       }
     }

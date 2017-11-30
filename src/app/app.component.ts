@@ -23,8 +23,12 @@ export class AppComponent {
     lat: 0,
     lng: 0
   };
+  categories: any = [];
   locations: any = [];
   selectedLocation: any;
+
+  // screens behavior varialbes
+  showCategories: boolean = false;
 
   ngOnInit() {
     if ("geolocation" in navigator) {
@@ -48,7 +52,14 @@ export class AppComponent {
       /* geolocaiton IS NOT available */
     }
 
+    this.locadCategories();
     this.loadLocations();
+  }
+
+  locadCategories() {
+    this.categories = [
+
+    ];
   }
 
   loadLocations() {
@@ -126,5 +137,17 @@ export class AppComponent {
   undisplayLocationInfo() {
     this.selectedLocation = null;
     this.agmMap.triggerResize(true);
+  }
+
+  toggleCategoriesScreen() {
+    this.showCategories = !this.showCategories;
+  }
+
+  showCategoriesScreen() {
+    this.showCategories = true;
+  }
+
+  closeCategoriesScreen() {
+    this.showCategories = false;
   }
 }
