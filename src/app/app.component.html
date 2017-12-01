@@ -47,12 +47,13 @@
 
 <!-- UI BUTTONS LIST -->
 <div class="locations-list-comands"
-  [ngClass]="{'card-margin' : selectedLocation, 'close-btn-margin': showCategories}">
+  [ngClass]="{'card-margin' : selectedLocation, 'close-btn-margin': showCategories || showLocations}">
   <a class="btn btn-large waves-effect waves-light"
     (click)="toggleCategoriesScreen()">
     <i class="material-icons">apps</i>
   </a>
-  <a class="btn btn-large waves-effect waves-light">
+  <a class="btn btn-large waves-effect waves-light"
+    (click)="toggleLocationsScreen()">
     <i class="material-icons">menu</i>
   </a>
 </div>
@@ -98,7 +99,7 @@
 </div>
 
 <!-- CATEGORIES SCREEN -->
-<div class="categories"
+<div class="overmap-screen categories"
   *ngIf="showCategories">
   <div class="container">
     <div class="section">
@@ -183,6 +184,60 @@
             </h4>
             <h5>Bancos</h5>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a class="right white-text action-close"
+    (click)="closeCategoriesScreen()">
+    <i class="material-icons text-depth-1">close</i>
+  </a>
+</div>
+
+<!-- LOCATIONS SCREEN -->
+<div class="overmap-screen locations"
+  *ngIf="showLocations">
+  <div class="container">
+    <div class="section">
+      <h4 class="white-text text-depth-1">Todos los comercios cerca tuyo</h4>
+    </div>
+
+    <div class="divider z-depth-1"></div>
+
+    <div class="section location-list">
+      <div class="row">
+        <div class="col m4 l3 s6">
+          <!-- <div class="category z-depth-1 hoverable">
+            <h4 class="category-icon">
+              <i class="material-icons">attach_money</i>
+            </h4>
+            <h5>Cajeros Automáticos</h5>
+          </div> -->
+        </div>
+        <div class="col m4 l3 s6">
+          <!-- <div class="category z-depth-1 hoverable">
+            <h4 class="category-icon">
+              <i class="material-icons">account_balance_wallet</i>
+            </h4>
+            <h5>Redes de Cobranza</h5>
+          </div> -->
+        </div>
+        <div class="col m4 l3 s6">
+          <!-- <div class="category z-depth-1 hoverable">
+            <h4 class="category-icon">
+              <i class="material-icons">local_gas_station</i>
+            </h4>
+            <h5>Estaciones de Servicio</h5>
+          </div> -->
+        </div>
+        <div class="col m4 l3 s6">
+          <!-- <div class="category z-depth-1 hoverable">
+            <h4 class="category-icon">
+              <i class="material-icons">account_balance</i>
+            </h4>
+            <h5>Bancos</h5>
+          </div> -->
         </div>
       </div>
     </div>

@@ -29,6 +29,7 @@ export class AppComponent {
 
   // screens behavior varialbes
   showCategories: boolean = false;
+  showLocations: boolean = false;
 
   ngOnInit() {
     if ("geolocation" in navigator) {
@@ -140,14 +141,32 @@ export class AppComponent {
   }
 
   toggleCategoriesScreen() {
+    this.showLocations = false;
     this.showCategories = !this.showCategories;
   }
 
   showCategoriesScreen() {
+    this.showLocations = false;
     this.showCategories = true;
   }
 
   closeCategoriesScreen() {
+    this.showLocations = false;
     this.showCategories = false;
+  }
+
+  toggleLocationsScreen() {
+    this.showCategories = false;
+    this.showLocations = !this.showLocations;
+  }
+
+  showLocationsScreen() {
+    this.showCategories = false;
+    this.showLocations = true;
+  }
+
+  closeLocationsScreen() {
+    this.showCategories = false;
+    this.showLocations = false;
   }
 }
