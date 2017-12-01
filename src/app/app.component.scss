@@ -131,6 +131,24 @@
         padding: 3rem;
       }
 
+      // Prueba de concepto
+      position: relative;
+      background-image: url(http://www.elpolitico.com/wp-content/uploads/2017/01/cajeros-automativos.jpg);
+      background-color: rgba(0,0,0,.8);
+      background-size: cover;
+      background-position: center;
+      border-color: #fff;
+
+      &:before {
+        content: "";
+        background-color: rgba(0,0,0,.65);
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+      }
+      ///////////////////////
 
       h4.category-icon {
         position: relative;
@@ -140,6 +158,12 @@
         color: $primary-color;
         border: 3px solid $primary-color;
         @include maintain-ratio(1 1);
+
+        // Prueba de concepto
+        position: relative;
+        border-color: #fff;
+        color: #fff;
+        ///////////////////////
 
         .material-icons {
           font-size: 4.5rem;
@@ -159,6 +183,11 @@
         font-weight: 400;
         height: 50px;
         color: $primary-color;
+        
+        // Prueba de concepto
+        position: relative;
+        color: #fff;
+        ///////////////////////
       }
     }
   }
